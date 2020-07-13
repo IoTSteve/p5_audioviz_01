@@ -195,10 +195,12 @@ class Segment{
     constructor(style){
         this.x = width/2;
         this.y = height/2;
-        this.size = 30
+        this.size = 150
 
         this.speed = 0.5;
         this.accel = 1.05;
+
+        this.stroke = 1;
 
         this.alive = true;
     }
@@ -206,9 +208,9 @@ class Segment{
     show(){
         push();
         rectMode(CENTER);
-        stroke('rgba(100,100,100,60)');
-        strokeWeight(3);
-        fill('rgba(195,171,222,100)');
+        stroke('rgba(0,0,0,100)');
+        strokeWeight(this.stroke);
+        fill('rgba(85,85,85,100)');
         
         rect(width/2, height/2, this.size);
         pop();
@@ -217,6 +219,7 @@ class Segment{
     update(){
         this.size += this.speed;
         this.speed *= this.accel; 
+        this.stroke *= 1.05;
         if(this.size > 1920 + 20000){
             this.alive = false;
         }
