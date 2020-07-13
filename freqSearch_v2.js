@@ -24,6 +24,12 @@ function setup() {
 
 
   fft = new p5.FFT(0, 1024);
+
+  /*
+  melody_fft = new p5.FFT(0.8, 1024);
+  melody_peak_fft = new p5.FFT(0.2, 1024);
+  */
+  
 }
 
 const chimes = [];
@@ -42,9 +48,9 @@ function draw() {
   //console.log("freq = " + freq + "  res = " + res)
   // draw filtered spectrum
   let spectrum = fft.analyze();
-  spectrum.splice(100, 1204);
+  spectrum.splice(100, 1204); // (ab welcher arraystelle, wieviel werden rausgeworfen)
   console.log(spectrum.length);
-  //spectrum.splice(0, 170);
+  //spectrum.splice(0, 170);  // bis welche arraaystele
   console.log(spectrum.length);
   noStroke();
   for (let i = 0; i < spectrum.length; i++) {

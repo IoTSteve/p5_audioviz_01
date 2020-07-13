@@ -4,7 +4,7 @@ var spectrum = []
 let fft, song, filter;
 
 function preload(){
-  song = loadSound('vsd/visual_distortion.mp3');
+  song = loadSound('vsd/drums.mp3');
 }
 
 function setup() {
