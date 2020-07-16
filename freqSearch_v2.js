@@ -23,7 +23,7 @@ function setup() {
   song.connect(filter);
 
 
-  fft = new p5.FFT(0, 1024);
+  fft = new p5.FFT(0.9, 1024);
 
   /*
   melody_fft = new p5.FFT(0.8, 1024);
