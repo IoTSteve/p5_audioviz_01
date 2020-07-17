@@ -15,7 +15,7 @@ let drums_fft, song_fft, swipe_fft, bass_fft;
 
 
 function preload(){
-  bass  = loadSound('vsd/bass.mp3');
+  bass  = loadSound('vsd/bassloop.mp3');
   song = loadSound('vsd/visual_distortion.mp3');
   drums = loadSound('vsd/drums.mp3');
   swipe = loadSound('vsd/other.mp3')
@@ -36,7 +36,7 @@ function setup(){
 
     bass_fft = new p5.FFT();
     bass_fft.setInput(bass);
-    swipe_fft = new p5.FFT(0.95, 1024);
+    swipe_fft = new p5.FFT(0.8, 1024);
     swipe_fft.setInput(bass);
     drums_fft = new p5.FFT();
     drums_fft.setInput(drums);
@@ -58,12 +58,12 @@ function checkBass(){
   if(lastBassval > bass_value){
       if(direction_bass > 0 && lastBassval > 200 ){//&&getMillis()-last_segment > 450){
           //last_segment = getMillis();
-            if(swipe_spectrum[5]-5 < swipe_spectrum[2] /*||*/ ){
+            if(swipe_spectrum[5]-5 < swipe_spectrum[2] || swipe_spectrum[5] < swipe_spectrum[7]){
                 
             let segment = new Segment(50, 50);
             //beatCount ++
             musicObjects.push(segment);
-            }else if(getMillis() - lastSwipe > 1000){
+            }else if(getMillis() - lastSwipe > 800){
                 let swipe = new Swipe(50, 50);
                 musicObjects.push(swipe);
                 lastObject = "swipe";
