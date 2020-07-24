@@ -165,6 +165,7 @@ function draw(){
     });
 
         push()
+        push()
         fill(255);
         textSize(45);
        // text(beatCount, 120, 120);
@@ -437,26 +438,18 @@ class Flyball{
     constructor(style){
         this.x = 1040;
         this.x2 = 880;
-        this.y = height/2;
         this.size = 20
 
         this.speed = 1;
         this.accel = 1.05;
-        this.coloraccel = 1.02;
         this.ballaccel = 1.02;
         this.ballspeed = 1;
         
 
-        this.stroke = 1;
+        
         this.saturation = 20;
-        this.saturationMiddle = 100;
         this.coloraccel = 0.4;
         this.coloraccel2 = 0.98;
-         
-       
-
-        
-
         this.alive = true;
     }
 
@@ -476,11 +469,6 @@ class Flyball{
        
     
     
-
-
-
-
-
         if (this.saturation  < 50) {
             fill(56,this.saturation,89);
         } else {
