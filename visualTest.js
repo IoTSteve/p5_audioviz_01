@@ -167,9 +167,9 @@ function draw(){
         push()
         fill(255);
         textSize(45);
-        text(beatCount, 120, 120);
-        text("X wert: " + mouseX, 30, 40); 
-        text("Y wert: " + mouseY, 500, 40); 
+       // text(beatCount, 120, 120);
+       // text("X wert: " + mouseX, 30, 40); 
+       // text("Y wert: " + mouseY, 500, 40); 
         pop();
 }
 
