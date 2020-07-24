@@ -4,7 +4,7 @@ var spectrum = []
 let fft, song, filter;
 
 function preload(){
-  song = loadSound('vsd/bass.mp3');
+  song = loadSound('vsd/visual_distortion.mp3');
   song.rate(1)
   //song.panPosition = 1;
   //song.setBuffer([song.buffer.getChannelData(1)]);
@@ -22,8 +22,8 @@ function setup() {
   song.disconnect();
   song.connect(filter);
 
-
-  fft = new p5.FFT(0.9, 1024);
+  song.currentTime(19);
+  fft = new p5.FFT(0.8, 1024);
 
   /*
   melody_fft = new p5.FFT(0.8, 1024);
@@ -48,22 +48,22 @@ function draw() {
   //console.log("freq = " + freq + "  res = " + res)
   // draw filtered spectrum
   let spectrum = fft.analyze();
-  spectrum.splice(100, 1204); // (ab welcher arraystelle, wieviel werden rausgeworfen)
+  spectrum.splice(180, 1204); // (ab welcher arraystelle, wieviel werden rausgeworfen)
   console.log(spectrum.length);
-  //spectrum.splice(0, 170);  // bis welche arraaystele
-  console.log(spectrum.length);
+  spectrum.splice(0, 20);  // bis welche arraaystele
+  // console.log(spectrum.length);
   noStroke();
   for (let i = 0; i < spectrum.length; i++) {
     let x = map(i, 0, spectrum.length, 0, width);
     let h = -height + map(spectrum[i], 0, 255, height, 0);
-    stroke(0, 0, 0);
-    strokeWeight(1);
+    //stroke(0, 0, 0);
+    //strokeWeight(1);
     rect(x, height, width/spectrum.length, h);
-    push()
-    fill(255);
-    textSize(18);
-    text(i, x, 120);
-    pop();
+    // push()
+    // fill(255);
+    // textSize(18);
+    // text(i, x, 120);
+    // pop();
     //console.log(h);
     if(-h > maxHeight){
       maxHeight = -h;
